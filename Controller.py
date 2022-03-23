@@ -1,19 +1,14 @@
-from XInput import *
+from time import time as timestamp, sleep
+from threading import Thread
 from pynput.mouse import Controller as Mouse, Button
 from pynput.keyboard import Controller as Keyboard, Key
-from time import time, sleep
-from threading import Thread
+from XInput import *
+from OI import *
 
 mouse = Mouse()
 keyboard = Keyboard()
 
 def poll_controller(user_index):
-    try:
-        get_state(user_index)
-    except XInputNotConnectedError:
-        input("Controller may not be connected, try checking the connection and hit enter to check again.")
-        poll_controller(user_index)
-    
     state = get_state(user_index)
     triggers = get_trigger_values(state)
     sticks = get_thumb_values(state)
@@ -29,10 +24,6 @@ def vibrate_controller(user_index, left_speed, right_speed, vibrate_time):
     return True
 
 def button_handler(events, on):
-    LEFT_SPEED = 0.8
-    RIGHT_SPEED = 0.3
-    VIBRATE_TIME = 0.2
-
     for event in events:
         if event.type == EVENT_BUTTON_PRESSED and on == True:
             if event.button == "LEFT_THUMB":
@@ -181,7 +172,6 @@ def button_handler(events, on):
                 print("select released")
                 print("controller input on")
 
-
     try:
         t.start()
     except UnboundLocalError:
@@ -190,15 +180,10 @@ def button_handler(events, on):
     return on
 
 def trigger_handler(triggers, last_trigger):
-    STOPPER_OFFSET = 2
-    LEFT_SPEED = 0.8
-    RIGHT_SPEED = 0.3
-    VIBRATE_TIME = 0.2
-
     l2 = triggers[0] * STOPPER_OFFSET
     r2 = triggers[1] * STOPPER_OFFSET
 
-    current = time()
+    current = timestamp()
     tick = current - last_trigger
     
     if tick >= 0.01:
@@ -215,13 +200,10 @@ def trigger_handler(triggers, last_trigger):
     return last_trigger
 
 def stick_handler(sticks, last_stick):
-    MOVE_SPEED = 10
-    SCROLL_SPEED = 0.5
-    
     stick1 = sticks[0]
     stick2 = sticks[1]
 
-    current = time()
+    current = timestamp()
     tick = current - last_stick
     
     if tick >= 0.01:
@@ -240,19 +222,3 @@ def stick_handler(sticks, last_stick):
         last_stick = current
 
     return last_stick
-
-def main():
-    on = True
-    last_stick = time()
-    last_trigger = time()
-    while True:
-        events, triggers, sticks = poll_controller(0)
-        on = button_handler(events, on)
-        if on == True:
-            last_trigger = trigger_handler(triggers, last_trigger)
-            last_stick = stick_handler(sticks, last_stick)            
-
-if __name__ == "__main__":
-    main()
-else:
-    raise ImportError("This is not meant to be imported as a module, only as a prototype program for testing")
