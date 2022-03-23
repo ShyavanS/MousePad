@@ -29,8 +29,8 @@ def vibrate_controller(user_index, left_speed, right_speed, vibrate_time):
     return True
 
 def button_handler(events, on):
-    LEFT_SPEED = 0.5
-    RIGHT_SPEED = 0.1
+    LEFT_SPEED = 0.8
+    RIGHT_SPEED = 0.3
     VIBRATE_TIME = 0.2
 
     for event in events:            
