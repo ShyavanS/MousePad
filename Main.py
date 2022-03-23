@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 # TODO: Comment all code
 # TODO: Create GUI and GUI class
 # TODO: Refine Controller class
