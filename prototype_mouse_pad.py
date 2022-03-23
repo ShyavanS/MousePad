@@ -33,7 +33,7 @@ def button_handler(events, on):
     RIGHT_SPEED = 0.3
     VIBRATE_TIME = 0.2
 
-    for event in events:            
+    for event in events:
         if event.type == EVENT_BUTTON_PRESSED and on == True:
             if event.button == "LEFT_THUMB":
                 t = Thread(target=vibrate_controller, args=(0,LEFT_SPEED,0,VIBRATE_TIME,))
@@ -190,8 +190,13 @@ def button_handler(events, on):
     return on
 
 def trigger_handler(triggers, last_trigger):
-    l2 = triggers[0]
-    r2 = triggers[1]
+    STOPPER_OFFSET = 2
+    LEFT_SPEED = 0.8
+    RIGHT_SPEED = 0.3
+    VIBRATE_TIME = 0.2
+
+    l2 = triggers[0] * STOPPER_OFFSET
+    r2 = triggers[1] * STOPPER_OFFSET
 
     current = time()
     tick = current - last_trigger
@@ -199,8 +204,12 @@ def trigger_handler(triggers, last_trigger):
     if tick >= 0.01:
         if l2 != 0:
             print("L2 state:", l2)
+            t = Thread(target=vibrate_controller, args=(0,LEFT_SPEED,0,VIBRATE_TIME,))
+            t.start()
         if r2 != 0:
             print("R2 state:", r2)
+            t = Thread(target=vibrate_controller, args=(0,0,RIGHT_SPEED,VIBRATE_TIME,))
+            t.start()
         last_trigger = current
 
     return last_trigger
