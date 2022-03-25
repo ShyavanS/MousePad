@@ -1,16 +1,79 @@
+import pickle
 from pynput.mouse import Controller as Mouse, Button
 from pynput.keyboard import Controller as Keyboard, Key
 
-CONTROLLER_ID = 0
+STOPPER_OFFSET = 5
 
-STOPPER_OFFSET = 2
+TRIGGER_MIN = 0.0
+TRIGGER_MAX = 0.2
 
-LEFT_SPEED = 0.8
-RIGHT_SPEED = 0.3
-VIBRATE_TIME = 0.2
+STICK_TICK = 0.01
+TRIGGER_TICK = 0.2
 
-MOVE_SPEED = 10
-SCROLL_SPEED = 0.5
+DEFAULT_BUTTON_DICT = {
+    'L1': 'Control',
+    'L2': 'Volume Up',
+    'L3': 'Backspace',
+    'R1': 'Shift',
+    'R2': 'Volume Down',
+    'R3': 'Enter',
+    'Menu': 'Start',
+    'Left': 'Left',
+    'Right': 'Right',
+    'Up': 'Up',
+    'Down': 'Down',
+    'A': 'Left Click',
+    'B': 'Right Click',
+    'Y': 'Middle Click',
+    'X': 'Play/Pause'
+}
+
+DEFAULT_STICK_DICT = {
+    'Left Stick': 'Move',
+    'Right Stick': 'Scroll'
+}
+
+try:
+    with open('settings.pkl', 'rb') as stdin:
+        CONTROLLER_ID = pickle.load(stdin)
+
+        LEFT_SPEED = pickle.load(stdin)
+        RIGHT_SPEED = pickle.load(stdin)
+
+        VIBRATE_TIME = pickle.load(stdin)
+
+        MOVE_SPEED = pickle.load(stdin)
+        SCROLL_SPEED = pickle.load(stdin)
+
+        BUTTON_DICT = pickle.load(stdin)
+        STICK_DICT = pickle.load(stdin)
+except FileNotFoundError:
+    CONTROLLER_ID = 0
+
+    LEFT_SPEED = 0.8
+    RIGHT_SPEED = 0.3
+
+    VIBRATE_TIME = 0.2
+
+    MOVE_SPEED = 10.0
+    SCROLL_SPEED = 0.5
+
+    BUTTON_DICT = DEFAULT_BUTTON_DICT.copy()
+    STICK_DICT = DEFAULT_STICK_DICT.copy()
+
+    with open('settings.pkl', 'wb') as stdout:
+        pickle.dump(CONTROLLER_ID, stdout, pickle.HIGHEST_PROTOCOL)
+
+        pickle.dump(LEFT_SPEED, stdout, pickle.HIGHEST_PROTOCOL)
+        pickle.dump(RIGHT_SPEED, stdout, pickle.HIGHEST_PROTOCOL)
+
+        pickle.dump(VIBRATE_TIME, stdout, pickle.HIGHEST_PROTOCOL)
+
+        pickle.dump(MOVE_SPEED, stdout, pickle.HIGHEST_PROTOCOL)
+        pickle.dump(SCROLL_SPEED, stdout, pickle.HIGHEST_PROTOCOL)
+
+        pickle.dump(BUTTON_DICT, stdout, pickle.HIGHEST_PROTOCOL)
+        pickle.dump(STICK_DICT, stdout, pickle.HIGHEST_PROTOCOL)
 
 mouse = Mouse()
 keyboard = Keyboard()
@@ -80,25 +143,28 @@ MOVEMENT_DICT = {
 }
 
 BUTTON_DICT = {
-    'L1': COMMAND_DICT['Control'],
-    'L3': COMMAND_DICT['Backspace'],
-    'R1': COMMAND_DICT['Shift'],
-    'R3': COMMAND_DICT['Enter'],
-    'Menu': COMMAND_DICT['Start'],
-    'Left': COMMAND_DICT['Left'],
-    'Right': COMMAND_DICT['Right'],
-    'Up': COMMAND_DICT['Up'],
-    'Down': COMMAND_DICT['Down'],
-    'A': COMMAND_DICT['Left Click'],
-    'B': COMMAND_DICT['Right Click'],
-    'Y': COMMAND_DICT['Middle Click'],
-    'X': COMMAND_DICT['Unmapped']
+    'L1': 'Control',
+    'L2': 'Volume Up',
+    'L3': 'Backspace',
+    'R1': 'Shift',
+    'R2': 'Volume Down',
+    'R3': 'Enter',
+    'Menu': 'Start',
+    'Left': 'Left',
+    'Right': 'Right',
+    'Up': 'Up',
+    'Down': 'Down',
+    'A': 'Left Click',
+    'B': 'Right Click',
+    'Y': 'Middle Click',
+    'X': 'Play/Pause'
 }
 
 STICK_DICT = {
-    'Left Stick': MOVEMENT_DICT['Move'],
-    'Right Stick': MOVEMENT_DICT['Scroll'],
+    'Left Stick': 'Move',
+    'Right Stick': 'Scroll'
 }
 
 if __name__ == "__main__":
-    raise ImportError("This is not meant to be run as a main program, it is a supplementary module.")
+    raise ImportError(
+        "This is not meant to be run as a main program, it is a supplementary module.")
