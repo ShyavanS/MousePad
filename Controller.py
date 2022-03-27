@@ -4,6 +4,13 @@ from XInput import *
 from IO import *
 
 
+def retrieve_controllers():
+    controllers = get_connected()
+    controller_ids = [controllers.index(i) for i in controllers if i]
+
+    return controller_ids
+
+
 def poll_controller(user_index):
     state = get_state(user_index)
     triggers = get_trigger_values(state)
