@@ -1,17 +1,12 @@
-#! /usr/bin/env python3
-
 # TODO: Comment all code
 # TODO: Create GUI and GUI module
 # TODO: Refine Controller module
 # TODO: Add end-user button remapping support in GUI
 # TODO: Add end-user speed multiplier modification support in GUI
-# TODO: Convert debug print statements to tet display on GUI with visual feedback
 # TODO: Create readme
 # TODO: Build releases and generate installer files
 # TODO: Implement startup service
 # TODO: Add multiple controller support
-# TODO: Look into mapping share and xbox button
-# TODO: Look into removing Microsoft UWP Xbox controller input functionality
 # TODO: Add logging functionality for debugging
 # TODO: Add autoupdater
 # TODO: Create testing plan
