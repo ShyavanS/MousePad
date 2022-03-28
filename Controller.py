@@ -36,188 +36,188 @@ def button_handler(events, on):
                     0, LEFT_SPEED, 0, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['L3']][0].press(
                     COMMAND_DICT[BUTTON_DICT['L3']][1])
-                # print("L3 pressed")
-                # print(f"{BUTTON_DICT['L3']} activated")
+                # print("L3 pressed") # For Debugging
+                # print(f"{BUTTON_DICT['L3']} activated") # For Debugging
             elif event.button == "RIGHT_THUMB":
                 t = Thread(target=vibrate_controller, args=(
                     0, 0, RIGHT_SPEED, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['R3']][0].press(
                     COMMAND_DICT[BUTTON_DICT['R3']][1])
-                # print("R3 pressed")
-                # print(f"{BUTTON_DICT['R3']} activated")
+                # print("R3 pressed") # For Debugging
+                # print(f"{BUTTON_DICT['R3']} activated") # For Debugging
 
             elif event.button == "LEFT_SHOULDER":
                 t = Thread(target=vibrate_controller, args=(
                     0, LEFT_SPEED, 0, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['L1']][0].press(
                     COMMAND_DICT[BUTTON_DICT['L1']][1])
-                # print("L1 pressed")
-                # print(f"{BUTTON_DICT['L1']} activated")
+                # print("L1 pressed") # For Debugging
+                # print(f"{BUTTON_DICT['L1']} activated") # For Debugging
             elif event.button == "RIGHT_SHOULDER":
                 t = Thread(target=vibrate_controller, args=(
                     0, 0, RIGHT_SPEED, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['R1']][0].press(
                     COMMAND_DICT[BUTTON_DICT['R1']][1])
-                # print("R1 pressed")
-                # print(f"{BUTTON_DICT['R1']} activated")
+                # print("R1 pressed") # For Debugging
+                # print(f"{BUTTON_DICT['R1']} activated") # For Debugging
 
             elif event.button == "BACK":
                 t = Thread(target=vibrate_controller, args=(
                     0, LEFT_SPEED, 0, VIBRATE_TIME,))
-                # print("View pressed")
+                # print("View pressed") # For Debugging
 
             elif event.button == "START":
                 t = Thread(target=vibrate_controller, args=(
                     0, 0, RIGHT_SPEED, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['Menu']][0].press(
                     COMMAND_DICT[BUTTON_DICT['Menu']][1])
-                # print("Menu pressed")
-                # print(f"{BUTTON_DICT['Menu']} activated")
+                # print("Menu pressed") # For Debugging
+                # print(f"{BUTTON_DICT['Menu']} activated") # For Debugging
 
             elif event.button == "DPAD_LEFT":
                 t = Thread(target=vibrate_controller, args=(
                     0, LEFT_SPEED, 0, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['Left']][0].press(
                     COMMAND_DICT[BUTTON_DICT['Left']][1])
-                # print("Left pressed")
-                # print(f"{BUTTON_DICT['Left']} activated")
+                # print("Left pressed") # For Debugging
+                # print(f"{BUTTON_DICT['Left']} activated") # For Debugging
             elif event.button == "DPAD_RIGHT":
                 t = Thread(target=vibrate_controller, args=(
                     0, LEFT_SPEED, 0, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['Right']][0].press(
                     COMMAND_DICT[BUTTON_DICT['Right']][1])
-                # print("Right pressed")
-                # print(f"{BUTTON_DICT['Right']} activated")
+                # print("Right pressed") # For Debugging
+                # print(f"{BUTTON_DICT['Right']} activated") # For Debugging
             elif event.button == "DPAD_UP":
                 t = Thread(target=vibrate_controller, args=(
                     0, LEFT_SPEED, 0, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['Up']][0].press(
                     COMMAND_DICT[BUTTON_DICT['Up']][1])
-                # print("Up pressed")
-                # print(f"{BUTTON_DICT['Up']} activated")
+                # print("Up pressed") # For Debugging
+                # print(f"{BUTTON_DICT['Up']} activated") # For Debugging
             elif event.button == "DPAD_DOWN":
                 t = Thread(target=vibrate_controller, args=(
                     0, LEFT_SPEED, 0, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['Down']][0].press(
                     COMMAND_DICT[BUTTON_DICT['Down']][1])
-                # print("Down pressed")
-                # print(f"{BUTTON_DICT['Down']} activated")
+                # print("Down pressed") # For Debugging
+                # print(f"{BUTTON_DICT['Down']} activated") # For Debugging
 
             elif event.button == "A":
                 t = Thread(target=vibrate_controller, args=(
                     0, 0, RIGHT_SPEED, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['A']][0].press(
                     COMMAND_DICT[BUTTON_DICT['A']][1])
-                # print("A pressed")
-                # print(f"{BUTTON_DICT['A']} activated")
+                # print("A pressed") # For Debugging
+                # print(f"{BUTTON_DICT['A']} activated") # For Debugging
             elif event.button == "B":
                 t = Thread(target=vibrate_controller, args=(
                     0, 0, RIGHT_SPEED, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['B']][0].press(
                     COMMAND_DICT[BUTTON_DICT['B']][1])
-                # print("B pressed")
-                # print(f"{BUTTON_DICT['B']} activated")
+                # print("B pressed") # For Debugging
+                # print(f"{BUTTON_DICT['B']} activated") # For Debugging
             elif event.button == "Y":
                 t = Thread(target=vibrate_controller, args=(
                     0, 0, RIGHT_SPEED, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['Y']][0].press(
                     COMMAND_DICT[BUTTON_DICT['Y']][1])
-                # print("Y pressed")
-                # print(f"{BUTTON_DICT['Y']} activated")
+                # print("Y pressed") # For Debugging
+                # print(f"{BUTTON_DICT['Y']} activated") # For Debugging
             elif event.button == "X":
                 t = Thread(target=vibrate_controller, args=(
                     0, 0, RIGHT_SPEED, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['X']][0].press(
                     COMMAND_DICT[BUTTON_DICT['X']][1])
-                # print("X pressed")
-                # print(f"{BUTTON_DICT['X']} activated")
+                # print("X pressed") # For Debugging
+                # print(f"{BUTTON_DICT['X']} activated") # For Debugging
 
         elif event.type == EVENT_BUTTON_RELEASED and on == True:
             if event.button == "LEFT_THUMB":
                 COMMAND_DICT[BUTTON_DICT['L3']][0].release(
                     COMMAND_DICT[BUTTON_DICT['L3']][1])
-                # print("L3 released")
-                # print(f"{BUTTON_DICT['L3']} deactivated")
+                # print("L3 released") # For Debugging
+                # print(f"{BUTTON_DICT['L3']} deactivated") # For Debugging
             elif event.button == "RIGHT_THUMB":
                 COMMAND_DICT[BUTTON_DICT['R3']][0].release(
                     COMMAND_DICT[BUTTON_DICT['R3']][1])
-                # print("R3 released")
-                # print(f"{BUTTON_DICT['R3']} deactivated")
+                # print("R3 released") # For Debugging
+                # print(f"{BUTTON_DICT['R3']} deactivated") # For Debugging
 
             elif event.button == "LEFT_SHOULDER":
                 COMMAND_DICT[BUTTON_DICT['L1']][0].release(
                     COMMAND_DICT[BUTTON_DICT['L1']][1])
-                # print("L1 released")
-                # print(f"{BUTTON_DICT['L1']} deactivated")
+                # print("L1 released") # For Debugging
+                # print(f"{BUTTON_DICT['L1']} deactivated") # For Debugging
             elif event.button == "RIGHT_SHOULDER":
                 COMMAND_DICT[BUTTON_DICT['R1']][0].release(
                     COMMAND_DICT[BUTTON_DICT['R1']][1])
-                # print("R1 released")
-                # print(f"{BUTTON_DICT['R1']} deactivated")
+                # print("R1 released") # For Debugging
+                # print(f"{BUTTON_DICT['R1']} deactivated") # For Debugging
 
             elif event.button == "BACK":
                 on = False
-                # print("View released")
-                # print("controller input off")
+                # print("View released") # For Debugging
+                # print("controller input off") # For Debugging
             elif event.button == "START":
                 COMMAND_DICT[BUTTON_DICT['Menu']][0].release(
                     COMMAND_DICT[BUTTON_DICT['Menu']][1])
-                # print("Menu released")
-                # print(f"{BUTTON_DICT['Menu']} deactivated")
+                # print("Menu released") # For Debugging
+                # print(f"{BUTTON_DICT['Menu']} deactivated") # For Debugging
 
             elif event.button == "DPAD_LEFT":
                 COMMAND_DICT[BUTTON_DICT['Left']][0].release(
                     COMMAND_DICT[BUTTON_DICT['Left']][1])
-                # print("Left released")
-                # print(f"{BUTTON_DICT['Left']} deactivated")
+                # print("Left released") # For Debugging
+                # print(f"{BUTTON_DICT['Left']} deactivated") # For Debugging
             elif event.button == "DPAD_RIGHT":
                 COMMAND_DICT[BUTTON_DICT['Right']][0].release(
                     COMMAND_DICT[BUTTON_DICT['Right']][1])
-                # print("Right released")
-                # print(f"{BUTTON_DICT['Right']} deactivated")
+                # print("Right released") # For Debugging
+                # print(f"{BUTTON_DICT['Right']} deactivated") # For Debugging
             elif event.button == "DPAD_UP":
                 COMMAND_DICT[BUTTON_DICT['Up']][0].release(
                     COMMAND_DICT[BUTTON_DICT['Up']][1])
-                # print("Up released")
-                # print(f"{BUTTON_DICT['Up']} deactivated")
+                # print("Up released") # For Debugging
+                # print(f"{BUTTON_DICT['Up']} deactivated") # For Debugging
             elif event.button == "DPAD_DOWN":
                 COMMAND_DICT[BUTTON_DICT['Down']][0].release(
                     COMMAND_DICT[BUTTON_DICT['Down']][1])
-                # print("Down released")
-                # print(f"{BUTTON_DICT['Down']} deactivated")
+                # print("Down released") # For Debugging
+                # print(f"{BUTTON_DICT['Down']} deactivated") # For Debugging
 
             elif event.button == "A":
                 COMMAND_DICT[BUTTON_DICT['A']][0].release(
                     COMMAND_DICT[BUTTON_DICT['A']][1])
-                # print("A released")
-                # print(f"{BUTTON_DICT['A']} deactivated")
+                # print("A released") # For Debugging
+                # print(f"{BUTTON_DICT['A']} deactivated") # For Debugging
             elif event.button == "B":
                 COMMAND_DICT[BUTTON_DICT['B']][0].release(
                     COMMAND_DICT[BUTTON_DICT['B']][1])
-                # print("B released")
-                # print(f"{BUTTON_DICT['B']} deactivated")
+                # print("B released") # For Debugging
+                # print(f"{BUTTON_DICT['B']} deactivated") # For Debugging
             elif event.button == "Y":
                 COMMAND_DICT[BUTTON_DICT['Y']][0].release(
                     COMMAND_DICT[BUTTON_DICT['Y']][1])
-                # print("Y released")
-                # print(f"{BUTTON_DICT['Y']} deactivated")
+                # print("Y released") # For Debugging
+                # print(f"{BUTTON_DICT['Y']} deactivated") # For Debugging
             elif event.button == "X":
                 COMMAND_DICT[BUTTON_DICT['X']][0].release(
                     COMMAND_DICT[BUTTON_DICT['X']][1])
-                # print("X released")
-                # print(f"{BUTTON_DICT['X']} deactivated")
+                # print("X released") # For Debugging
+                # print(f"{BUTTON_DICT['X']} deactivated") # For Debugging
 
         elif event.type == EVENT_BUTTON_PRESSED and on == False:
             if event.button == "BACK":
                 t = Thread(target=vibrate_controller, args=(
                     0, LEFT_SPEED, 0, VIBRATE_TIME,))
-                # print("view pressed")
+                # print("view pressed") # For Debugging
 
         elif event.type == EVENT_BUTTON_RELEASED and on == False:
             if event.button == "BACK":
                 on = True
-                # print("view released")
-                # print("controller input on")
+                # print("view released") # For Debugging
+                # print("controller input on") # For Debugging
 
     try:
         t.start()
@@ -243,14 +243,14 @@ def trigger_handler(triggers, last_trigger, l2_pressed, r2_pressed):
                     0, LEFT_SPEED, 0, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['L2']][0].press(
                     COMMAND_DICT[BUTTON_DICT['L2']][1])
-                # print("L2 pressed")
-                # print(f"{BUTTON_DICT['L2']} activated")
+                # print("L2 pressed") # For Debugging
+                # print(f"{BUTTON_DICT['L2']} activated") # For Debugging
                 l2_pressed = True
             elif l2_pressed == True:
                 COMMAND_DICT[BUTTON_DICT['L2']][0].release(
                     COMMAND_DICT[BUTTON_DICT['L2']][1])
-                # print("L2 released")
-                # print(f"{BUTTON_DICT['L2']} deactivated")
+                # print("L2 released") # For Debugging
+                # print(f"{BUTTON_DICT['L2']} deactivated") # For Debugging
                 l2_pressed = False
         except TypeError:
             pass
@@ -262,14 +262,14 @@ def trigger_handler(triggers, last_trigger, l2_pressed, r2_pressed):
                     0, 0, RIGHT_SPEED, VIBRATE_TIME,))
                 COMMAND_DICT[BUTTON_DICT['R2']][0].press(
                     COMMAND_DICT[BUTTON_DICT['R2']][1])
-                # print("R2 pressed")
-                # print(f"{BUTTON_DICT['R2']} activated")
+                # print("R2 pressed") # For Debugging
+                # print(f"{BUTTON_DICT['R2']} activated") # For Debugging
                 r2_pressed = True
             elif r2_pressed == True:
                 COMMAND_DICT[BUTTON_DICT['R2']][0].release(
                     COMMAND_DICT[BUTTON_DICT['R2']][1])
-                # print("R2 released")
-                # print(f"{BUTTON_DICT['R2']} deactivated")
+                # print("R2 released") # For Debugging
+                # print(f"{BUTTON_DICT['R2']} deactivated") # For Debugging
                 r2_pressed = False
         except TypeError:
             pass
@@ -294,7 +294,7 @@ def stick_handler(sticks, last_stick):
     if tick >= STICK_TICK:
         try:
             if left_stick[0] != 0 and left_stick[1] != 0:
-                # print("Left Stick state:", left_stick)
+                # print("Left Stick state:", left_stick) # For Debugging
                 MOVEMENT_DICT[STICK_DICT['Left Stick']][0](MOVEMENT_DICT[STICK_DICT['Left Stick']][2] * left_stick[0],
                                                            MOVEMENT_DICT[STICK_DICT['Left Stick']][2] * MOVEMENT_DICT[STICK_DICT['Left Stick']][1] * left_stick[1])
         except TypeError:
@@ -302,7 +302,7 @@ def stick_handler(sticks, last_stick):
 
         try:
             if right_stick[0] != 0 and right_stick[1] != 0:
-                # print("Right stick state:", right_stick)
+                # print("Right stick state:", right_stick) # For Debugging
                 MOVEMENT_DICT[STICK_DICT['Right Stick']][0](MOVEMENT_DICT[STICK_DICT['Right Stick']][2] * right_stick[0],
                                                             MOVEMENT_DICT[STICK_DICT['Right Stick']][2] * MOVEMENT_DICT[STICK_DICT['Right Stick']][1] * right_stick[1])
         except TypeError:
