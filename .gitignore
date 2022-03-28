@@ -1,3 +1,6 @@
 # Ignore Python and VSCode Cache Folder
 __pycache__/
 .vscode/
+
+# Ignore GIMP Editable Icon File
+MousePad.xcf
