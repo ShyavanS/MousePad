@@ -1,0 +1,248 @@
+<MyLayout>
+    left_text:left_vib
+    right_text: right_vib
+    scroll_text: scroll_sen
+    cursor_text: cursor_sen
+    do_default_tab: False
+
+    tab_pos: 'top_mid'
+
+    TabbedPanelItem:
+        text: "controller"
+        BoxLayout:
+            orientation: "horizontal"
+            size: root.width, root.height
+            BoxLayout:
+                orientation: "vertical"
+                size: root.width, root.height
+                Label:
+                    text: "Left JoyStick"
+                Spinner:
+                    id: left_stick
+                    text: "Shortcut:"
+                    values: ["a","b","c","d"]
+                    on_text: root.left_joystick(left_stick.text)
+                Label:
+                    text: "Up Arrow"
+                Spinner:
+                    id: up_button
+                    text: "Shortcut:"
+                    values: ["a","b","c","d"]
+                    on_text: root.press_up(up_button.text)
+                Label:
+                    text: "Left Arrow"
+                Spinner:
+                    id: left_button
+                    text: "Shortcut:"
+                    values: ["a","b","c","d"]
+                    on_text: root.press_left(left_button.text)
+                Label:
+                    text: "Right Arrow"
+                Spinner:
+                    id: right_button
+                    text: "Shortcut:"
+                    values: ["a","b","c","d"]
+                    on_text: root.press_right(right_button.text)
+                Label:
+                    text: "Down Arrow"
+                Spinner:
+                    id: down_button
+                    text: "Shortcut:"
+                    values: ["a","b","c","d"]
+                    on_text: root.press_down(down_button.text)
+                Label:
+                    text: "L1 Trigger"
+                Spinner:
+                    id: l1_button
+                    text: "Shortcut:"
+                    values: ["a","b","c","d"]
+                    on_text: root.press_L1(l1_button.text)
+                Label:
+                    text: "L2 Trigger"
+                Spinner:
+                    id: l2_button
+                    text: "Shortcut:"
+                    values: ["a","b","c","d"]
+                    on_text: root.press_L2(l2_button.text)
+
+            BoxLayout:
+                orientation: "vertical"
+                size: root.width, root.height
+
+                Image: 
+                    source: "Front_View.png"
+                Image: 
+                    source: "Top_View.png"
+                Button:
+                    text: "Save"
+
+            BoxLayout:
+                orientation: "vertical"
+                size: root.width, root.height
+                Label:
+                    text: "Y Button"
+                Spinner:
+                    id: y_button
+                    text: "Shortcut:"
+                    values: ["a","b","c","d"]
+                    on_text: root.press_y(y_button.text)
+                Label:
+                    text: "X Button"
+                Spinner:
+                    id: x_button
+                    text: "Shortcut:"
+                    values: ["a","b","c","d"]
+                    on_text: root.press_x(x_button.text)
+                Label:
+                    text: "B Button"
+                Spinner:
+                    id: b_button
+                    text: "Shortcut:"
+                    values: ["a","b","c","d"]
+                    on_text: root.press_b(b_button.text)
+                Label:
+                    text: "A Button"
+                Spinner:
+                    id: a_button
+                    text: "Shortcut:"
+                    values: ["a","b","c","d"]
+                    on_text: root.press_a(a_button.text)
+                Label:
+                    text: "Right Joystick"
+                Spinner:
+                    id: right_stick
+                    text: "Shortcut:"
+                    values: ["a","b","c","d"]
+                    on_text: root.right_joystick(left_stick.text)
+                Label:
+                    text: "R1 Trigger"
+                Spinner:
+                    id: r1_button
+                    text: "Shortcut:"
+                    values: ["a","b","c","d"]
+                    on_text: root.press_r1(r1_button.text)
+                Label:
+                    text: "R2 Trigger"
+                Spinner:
+                    id: r2_button
+                    text: "Shortcut:"
+                    values: ["a","b","c","d"]
+                    on_text: root.press_r2(r2_button.text)
+
+    
+    TabbedPanelItem:
+        text: "sliders"
+        BoxLayout:
+            orientation: "horizontal"
+            size: root.width, root.height
+            BoxLayout:
+                orientation: "vertical"
+                size: root.width, root.height
+                Label:
+                    text: "Left Vibration"
+                    font_size: 8
+                Label:
+                    id: left_vib
+                    text: "Vibration"
+                    font_size: 8
+                Slider:
+                    min: 0
+                    max: 100
+                    step: 1
+                    orientation: "vertical"
+                    on_value: root.left_vib(*args)
+            BoxLayout:
+                orientation: "vertical"
+                size: root.width, root.height
+                Label:
+                    text: "Right Vibration"
+                    font_size: 8
+                Label:
+                    id: right_vib
+                    text: "Vibration"
+                    font_size: 8
+                Slider:
+                    min: 0
+                    max: 100
+                    step: 1
+                    orientation: "vertical"
+                    on_value: root.right_vib(*args)
+            BoxLayout:
+                orientation: "vertical"
+                size: root.width, root.height
+                Label:
+                    text: "Scroll Sensitivity"
+                    font_size: 8
+                Label:
+                    id: scroll_sen
+                    text: "Sensitivity"
+                    font_size: 8
+                Slider:
+                    min: 1
+                    max: 100
+                    step: 1
+                    orientation: "vertical"
+                    on_value: root.scroll_sen(*args)
+            BoxLayout:
+                orientation: "vertical"
+                size: root.width, root.height
+                Label:
+                    text: "Cursor Sensitivity"
+                    font_size: 8
+                Label:
+                    id: cursor_sen
+                    text: "Sensitivity"
+                    font_size: 8
+                Slider:
+                    min: 1
+                    max: 100
+                    step: 1
+                    orientation: "vertical"
+                    on_value: root.cursor_sen(*args)
+            BoxLayout:
+                orientation: "vertical"
+                size: root.width, root.height
+                Label:
+                    text: "Vibration Time"
+                Spinner:
+                    id: vibration_id
+                    text: "Time"
+                    values: ["1","2","3","4","5","6","7","8","9","10"]
+                    on_text: root.vibration_time(vibration_id.text)
+                Label:
+                    text: "Controller ID"
+                Spinner:
+                    id: controller_id
+                    text: "ID"
+                    values: ["0","1","2","3"]
+                    on_text: root.controller_num(controller_id.text)
+                Button:
+                    text: "Save"
+
+
+    TabbedPanelItem:
+        text: "updates"
+        BoxLayout:
+            orientation: "vertical"
+            size: root.width, root.height
+            Button:
+                text: "Check For Updates"
+            Button:
+                text: "Download Latest"
+
+
+
+    TabbedPanelItem:
+        text: "reset"
+        BoxLayout:
+            orientation: "vertical"
+            size: root.width, root.height
+            Label:
+                text: "Reset all settings to Default."
+            Button:
+                text: "Reset"
+
+    TabbedPanelItem:
+        text: "manual"
+        Label:
+            text: "Instructions:\n\nNormal  things that seem like bugs:\n\nMeant as a supplement, in some instances you will still need your keyboard like task manager\n\nMade by:\nFrank\nIbrahim\nShyavan\nSoham\n\nCopywright and/or readme info and version no."
