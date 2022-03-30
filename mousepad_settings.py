@@ -10,23 +10,18 @@ mousepad = singleton.SingleInstance()
 
 Builder.load_file('gui_layout.kv')
 
-
 class MyLayout(TabbedPanel):
     def left_vib(self, *args):
         self.left_text.text = str(int(args[1]))
-        self.left_text.font_size = 8
 
     def right_vib(self, *args):
         self.right_text.text = str(int(args[1]))
-        self.right_text.font_size = 8
 
     def scroll_sen(self, *args):
         self.scroll_text.text = str(int(args[1]))
-        self.scroll_text.font_size = 8
 
     def cursor_sen(self, *args):
         self.cursor_text.text = str(int(args[1]))
-        self.cursor_text.font_size = 8
 
     def vibration_time(self, value):
         self.ids.vibration_id.text = value
@@ -70,11 +65,12 @@ class MyLayout(TabbedPanel):
     def right_joystick(self, value):
         self.ids.right_stick.text = value
 
-    def press_r2(self, value):
+    def press_r1(self, value):
         self.ids.r1_button.text = value
 
     def press_r2(self, value):
         self.ids.r2_button.text = value
+        
     pass
 
 
