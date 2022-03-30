@@ -1,11 +1,14 @@
 from kivy.app import App
-from kivy.uix.widget import Widget
-from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 from kivy.uix.tabbedpanel import TabbedPanel
+from os import environ
+from tendo import singleton
 
+environ["PBR_VERSION"] = "4.0.2"
 
-Builder.load_file('tabs.kv')
+mousepad = singleton.SingleInstance()
+
+Builder.load_file('gui_layout.kv')
 
 
 class MyLayout(TabbedPanel):

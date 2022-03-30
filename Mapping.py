@@ -2,7 +2,7 @@ import json
 
 
 def save_settings(controller_id, left_speed, right_speed, vibrate_button_time, vibrate_trigger_time, move_speed, scroll_speed, button_dict, stick_dict):
-    MASTER_DICT = {
+    master_dict = {
         'CONTROLLER_ID': controller_id,
         'LEFT_SPEED': left_speed,
         'RIGHT_SPEED': right_speed,
@@ -15,25 +15,25 @@ def save_settings(controller_id, left_speed, right_speed, vibrate_button_time, v
     }
 
     with open("settings.json", "w") as stdout:
-        json.dump(MASTER_DICT, stdout, indent=4)
+        json.dump(master_dict, stdout, indent=4)
 
 
 def load_settings():
     with open("settings.json", "r") as stdin:
-        MASTER_DICT = json.load(stdin)
+        master_dict = json.load(stdin)
 
-        controller_id = MASTER_DICT['CONTROLLER_ID']
+        controller_id = master_dict['CONTROLLER_ID']
 
-        left_speed = MASTER_DICT['LEFT_SPEED']
-        right_speed = MASTER_DICT['RIGHT_SPEED']
+        left_speed = master_dict['LEFT_SPEED']
+        right_speed = master_dict['RIGHT_SPEED']
 
-        vibrate_button_time = MASTER_DICT['VIBRATE_BUTTON_TIME']
-        vibrate_trigger_time = MASTER_DICT['VIBRATE_TRIGGER_TIME']
+        vibrate_button_time = master_dict['VIBRATE_BUTTON_TIME']
+        vibrate_trigger_time = master_dict['VIBRATE_TRIGGER_TIME']
 
-        move_speed = MASTER_DICT['MOVE_SPEED']
-        scroll_speed = MASTER_DICT['SCROLL_SPEED']
+        move_speed = master_dict['MOVE_SPEED']
+        scroll_speed = master_dict['SCROLL_SPEED']
 
-        button_dict = MASTER_DICT['BUTTON_DICT']
-        stick_dict = MASTER_DICT['STICK_DICT']
+        button_dict = master_dict['BUTTON_DICT']
+        stick_dict = master_dict['STICK_DICT']
 
     return controller_id, left_speed, right_speed, vibrate_button_time, vibrate_trigger_time, move_speed, scroll_speed, button_dict, stick_dict

@@ -1,6 +1,6 @@
 from pynput.mouse import Controller as Mouse, Button
 from pynput.keyboard import Controller as Keyboard, Key
-from Mapping import *
+from mapping import *
 
 STOPPER_OFFSET = 4
 

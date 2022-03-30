@@ -6,10 +6,10 @@
 # TODO: Add autoupdater
 # TODO: Bug testing
 
-from Controller import *
 from os import environ
 from tendo import singleton
 from win10toast_click import ToastNotifier
+from controller import *
 
 environ["PBR_VERSION"] = "4.0.2"
 
@@ -32,7 +32,7 @@ def main():
 
     while True:
         try:
-            events, triggers, sticks = poll_controller(CONTROLLER_ID)
+            events, triggers, sticks = poll_controller()
 
             error_notified = False
         except XInputNotConnectedError:

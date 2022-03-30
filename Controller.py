@@ -1,8 +1,7 @@
 from time import time as timestamp, sleep
 from threading import Thread
 from XInput import *
-from IO import *
-
+from constants import *
 
 def retrieve_controllers():
     controllers = get_connected()
@@ -11,8 +10,8 @@ def retrieve_controllers():
     return controller_ids
 
 
-def poll_controller(user_index):
-    state = get_state(user_index)
+def poll_controller():
+    state = get_state(CONTROLLER_ID)
     triggers = get_trigger_values(state)
     sticks = get_thumb_values(state)
     events = get_events()
@@ -20,10 +19,10 @@ def poll_controller(user_index):
     return events, triggers, sticks
 
 
-def vibrate_controller(user_index, left_speed, right_speed, VIBRATE_BUTTON_TIME):
-    set_vibration(user_index, left_speed, right_speed)
-    sleep(VIBRATE_BUTTON_TIME)
-    set_vibration(0, 0, 0)
+def vibrate_controller(left_speed, right_speed, vibrate_time):
+    set_vibration(CONTROLLER_ID, left_speed, right_speed)
+    sleep(vibrate_time)
+    set_vibration(CONTROLLER_ID, 0, 0)
 
     return True
 
@@ -33,14 +32,14 @@ def button_handler(events, on):
         if event.type == EVENT_BUTTON_PRESSED and on == True:
             if event.button == "LEFT_THUMB":
                 t = Thread(target=vibrate_controller, args=(
-                    0, LEFT_SPEED, 0, VIBRATE_BUTTON_TIME,))
+                    LEFT_SPEED, 0, VIBRATE_BUTTON_TIME,))
                 COMMAND_DICT[BUTTON_DICT['L3']][0].press(
                     COMMAND_DICT[BUTTON_DICT['L3']][1])
                 # print("L3 pressed") # For Debugging
                 # print(f"{BUTTON_DICT['L3']} activated") # For Debugging
             elif event.button == "RIGHT_THUMB":
                 t = Thread(target=vibrate_controller, args=(
-                    0, 0, RIGHT_SPEED, VIBRATE_BUTTON_TIME,))
+                    0, RIGHT_SPEED, VIBRATE_BUTTON_TIME,))
                 COMMAND_DICT[BUTTON_DICT['R3']][0].press(
                     COMMAND_DICT[BUTTON_DICT['R3']][1])
                 # print("R3 pressed") # For Debugging
@@ -48,14 +47,14 @@ def button_handler(events, on):
 
             elif event.button == "LEFT_SHOULDER":
                 t = Thread(target=vibrate_controller, args=(
-                    0, LEFT_SPEED, 0, VIBRATE_BUTTON_TIME,))
+                    LEFT_SPEED, 0, VIBRATE_BUTTON_TIME,))
                 COMMAND_DICT[BUTTON_DICT['L1']][0].press(
                     COMMAND_DICT[BUTTON_DICT['L1']][1])
                 # print("L1 pressed") # For Debugging
                 # print(f"{BUTTON_DICT['L1']} activated") # For Debugging
             elif event.button == "RIGHT_SHOULDER":
                 t = Thread(target=vibrate_controller, args=(
-                    0, 0, RIGHT_SPEED, VIBRATE_BUTTON_TIME,))
+                    0, RIGHT_SPEED, VIBRATE_BUTTON_TIME,))
                 COMMAND_DICT[BUTTON_DICT['R1']][0].press(
                     COMMAND_DICT[BUTTON_DICT['R1']][1])
                 # print("R1 pressed") # For Debugging
@@ -63,12 +62,12 @@ def button_handler(events, on):
 
             elif event.button == "BACK":
                 t = Thread(target=vibrate_controller, args=(
-                    0, LEFT_SPEED, 0, VIBRATE_BUTTON_TIME,))
+                    LEFT_SPEED, 0, VIBRATE_BUTTON_TIME,))
                 # print("View pressed") # For Debugging
 
             elif event.button == "START":
                 t = Thread(target=vibrate_controller, args=(
-                    0, 0, RIGHT_SPEED, VIBRATE_BUTTON_TIME,))
+                    0, RIGHT_SPEED, VIBRATE_BUTTON_TIME,))
                 COMMAND_DICT[BUTTON_DICT['Menu']][0].press(
                     COMMAND_DICT[BUTTON_DICT['Menu']][1])
                 # print("Menu pressed") # For Debugging
@@ -76,28 +75,28 @@ def button_handler(events, on):
 
             elif event.button == "DPAD_LEFT":
                 t = Thread(target=vibrate_controller, args=(
-                    0, LEFT_SPEED, 0, VIBRATE_BUTTON_TIME,))
+                    LEFT_SPEED, 0, VIBRATE_BUTTON_TIME,))
                 COMMAND_DICT[BUTTON_DICT['Left']][0].press(
                     COMMAND_DICT[BUTTON_DICT['Left']][1])
                 # print("Left pressed") # For Debugging
                 # print(f"{BUTTON_DICT['Left']} activated") # For Debugging
             elif event.button == "DPAD_RIGHT":
                 t = Thread(target=vibrate_controller, args=(
-                    0, LEFT_SPEED, 0, VIBRATE_BUTTON_TIME,))
+                    LEFT_SPEED, 0, VIBRATE_BUTTON_TIME,))
                 COMMAND_DICT[BUTTON_DICT['Right']][0].press(
                     COMMAND_DICT[BUTTON_DICT['Right']][1])
                 # print("Right pressed") # For Debugging
                 # print(f"{BUTTON_DICT['Right']} activated") # For Debugging
             elif event.button == "DPAD_UP":
                 t = Thread(target=vibrate_controller, args=(
-                    0, LEFT_SPEED, 0, VIBRATE_BUTTON_TIME,))
+                    LEFT_SPEED, 0, VIBRATE_BUTTON_TIME,))
                 COMMAND_DICT[BUTTON_DICT['Up']][0].press(
                     COMMAND_DICT[BUTTON_DICT['Up']][1])
                 # print("Up pressed") # For Debugging
                 # print(f"{BUTTON_DICT['Up']} activated") # For Debugging
             elif event.button == "DPAD_DOWN":
                 t = Thread(target=vibrate_controller, args=(
-                    0, LEFT_SPEED, 0, VIBRATE_BUTTON_TIME,))
+                    LEFT_SPEED, 0, VIBRATE_BUTTON_TIME,))
                 COMMAND_DICT[BUTTON_DICT['Down']][0].press(
                     COMMAND_DICT[BUTTON_DICT['Down']][1])
                 # print("Down pressed") # For Debugging
@@ -105,28 +104,28 @@ def button_handler(events, on):
 
             elif event.button == "A":
                 t = Thread(target=vibrate_controller, args=(
-                    0, 0, RIGHT_SPEED, VIBRATE_BUTTON_TIME,))
+                    0, RIGHT_SPEED, VIBRATE_BUTTON_TIME,))
                 COMMAND_DICT[BUTTON_DICT['A']][0].press(
                     COMMAND_DICT[BUTTON_DICT['A']][1])
                 # print("A pressed") # For Debugging
                 # print(f"{BUTTON_DICT['A']} activated") # For Debugging
             elif event.button == "B":
                 t = Thread(target=vibrate_controller, args=(
-                    0, 0, RIGHT_SPEED, VIBRATE_BUTTON_TIME,))
+                    0, RIGHT_SPEED, VIBRATE_BUTTON_TIME,))
                 COMMAND_DICT[BUTTON_DICT['B']][0].press(
                     COMMAND_DICT[BUTTON_DICT['B']][1])
                 # print("B pressed") # For Debugging
                 # print(f"{BUTTON_DICT['B']} activated") # For Debugging
             elif event.button == "Y":
                 t = Thread(target=vibrate_controller, args=(
-                    0, 0, RIGHT_SPEED, VIBRATE_BUTTON_TIME,))
+                    0, RIGHT_SPEED, VIBRATE_BUTTON_TIME,))
                 COMMAND_DICT[BUTTON_DICT['Y']][0].press(
                     COMMAND_DICT[BUTTON_DICT['Y']][1])
                 # print("Y pressed") # For Debugging
                 # print(f"{BUTTON_DICT['Y']} activated") # For Debugging
             elif event.button == "X":
                 t = Thread(target=vibrate_controller, args=(
-                    0, 0, RIGHT_SPEED, VIBRATE_BUTTON_TIME,))
+                    0, RIGHT_SPEED, VIBRATE_BUTTON_TIME,))
                 COMMAND_DICT[BUTTON_DICT['X']][0].press(
                     COMMAND_DICT[BUTTON_DICT['X']][1])
                 # print("X pressed") # For Debugging
@@ -240,7 +239,7 @@ def trigger_handler(triggers, last_trigger, l2_pressed, r2_pressed):
             if l2 != 0:
                 # print("L2 state:", l2)
                 t = Thread(target=vibrate_controller, args=(
-                    0, LEFT_SPEED, 0, VIBRATE_TRIGGER_TIME,))
+                    LEFT_SPEED, 0, VIBRATE_TRIGGER_TIME,))
                 COMMAND_DICT[BUTTON_DICT['L2']][0].press(
                     COMMAND_DICT[BUTTON_DICT['L2']][1])
                 # print("L2 pressed") # For Debugging
@@ -259,7 +258,7 @@ def trigger_handler(triggers, last_trigger, l2_pressed, r2_pressed):
             if r2 != 0:
                 # print("R2 state:", r2)
                 t = Thread(target=vibrate_controller, args=(
-                    0, 0, RIGHT_SPEED, VIBRATE_TRIGGER_TIME,))
+                    0, RIGHT_SPEED, VIBRATE_TRIGGER_TIME,))
                 COMMAND_DICT[BUTTON_DICT['R2']][0].press(
                     COMMAND_DICT[BUTTON_DICT['R2']][1])
                 # print("R2 pressed") # For Debugging
