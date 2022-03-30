@@ -3,4 +3,4 @@ __pycache__/
 .vscode/
 
 # Ignore GIMP Editable Icon File
-MousePad.xcf
+mouse_pad.xcf

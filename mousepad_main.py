@@ -38,7 +38,7 @@ def main():
         except XInputNotConnectedError:
             if error_notified == False:
                 notify.show_toast("Controller Disconnected", "Controller may not be connected, try checking if bluetooth is working or reconnect the usb cable.",
-                                  icon_path="MousePad.ico", duration=5, threaded=True)
+                                  icon_path="mouse_pad.ico", duration=5, threaded=True)
 
                 error_notified = True
             continue
@@ -51,7 +51,7 @@ def main():
         if on == True:
             if disable_notified == True:
                 notify.show_toast("Controller Input Enabled", "The controller input has now been enabled, press the View Button to de-activate it.",
-                                  icon_path="MousePad.ico", duration=5, threaded=True)
+                                  icon_path="mouse_pad.ico", duration=5, threaded=True)
 
             last_trigger, l2_pressed, r2_pressed = trigger_handler(
                 triggers, last_trigger, l2_pressed, r2_pressed)
@@ -61,7 +61,7 @@ def main():
         else:
             if disable_notified == False:
                 notify.show_toast("Controller Input Disabled", "The controller input has now been disabled, press the View Button to re-activate it.",
-                                  icon_path="MousePad.ico", duration=5, threaded=True)
+                                  icon_path="mouse_pad.ico", duration=5, threaded=True)
 
                 disable_notified = True
 
