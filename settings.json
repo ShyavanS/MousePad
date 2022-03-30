@@ -1,0 +1,30 @@
+{
+    "CONTROLLER_ID": 0,
+    "LEFT_SPEED": 0.8,
+    "RIGHT_SPEED": 0.3,
+    "VIBRATE_BUTTON_TIME": 0.2,
+    "VIBRATE_TRIGGER_TIME": 0.05,
+    "MOVE_SPEED": 10.0,
+    "SCROLL_SPEED": 0.5,
+    "BUTTON_DICT": {
+        "L1": "Control",
+        "L2": "Volume Up",
+        "L3": "Backspace",
+        "R1": "Shift",
+        "R2": "Volume Down",
+        "R3": "Enter",
+        "Menu": "Start",
+        "Left": "Left",
+        "Right": "Right",
+        "Up": "Up",
+        "Down": "Down",
+        "A": "Left Click",
+        "B": "Right Click",
+        "Y": "Middle Click",
+        "X": "Play/Pause"
+    },
+    "STICK_DICT": {
+        "Left Stick": "Move",
+        "Right Stick": "Scroll"
+    }
+}

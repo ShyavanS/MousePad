@@ -1,14 +1,9 @@
 # TODO: Comment all code
-# TODO: Create GUI and GUI module
+# TODO: Work on GUI
 # TODO: Add end-user button remapping support in GUI
 # TODO: Add end-user speed multiplier modification support in GUI
 # TODO: Create readme
-# TODO: Build releases and generate installer files
-# TODO: Implement startup service
-# TODO: Add multiple controller support
-# TODO: Add logging functionality for debugging
 # TODO: Add autoupdater
-# TODO: Create testing plan
 # TODO: Bug testing
 
 from Controller import *

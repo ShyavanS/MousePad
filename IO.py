@@ -1,79 +1,55 @@
-import pickle
 from pynput.mouse import Controller as Mouse, Button
 from pynput.keyboard import Controller as Keyboard, Key
+from Mapping import *
 
-STOPPER_OFFSET = 5
+STOPPER_OFFSET = 4
 
 TRIGGER_MIN = 0.0
-TRIGGER_MAX = 0.2
+TRIGGER_MAX = 0.25
 
 STICK_TICK = 0.01
 TRIGGER_TICK = 0.1
 
+DEFAULT_CONTROLLER_ID = 0
+
+DEFAULT_LEFT_SPEED = 0.8
+DEFAULT_RIGHT_SPEED = 0.3
+
+DEFAULT_VIBRATE_BUTTON_TIME = 0.2
+DEFAULT_VIBRATE_TRIGGER_TIME = 0.05
+
+DEFAULT_MOVE_SPEED = 10.0
+DEFAULT_SCROLL_SPEED = 0.5
+
 DEFAULT_BUTTON_DICT = {
-    'L1': 'Control',
-    'L2': 'Volume Up',
-    'L3': 'Backspace',
-    'R1': 'Shift',
-    'R2': 'Volume Down',
-    'R3': 'Enter',
-    'Menu': 'Start',
-    'Left': 'Left',
-    'Right': 'Right',
-    'Up': 'Up',
-    'Down': 'Down',
-    'A': 'Left Click',
-    'B': 'Right Click',
-    'Y': 'Middle Click',
-    'X': 'Play/Pause'
+    'L1': "Control",
+    'L2': "Volume Up",
+    'L3': "Backspace",
+    'R1': "Shift",
+    'R2': "Volume Down",
+    'R3': "Enter",
+    'Menu': "Start",
+    'Left': "Left",
+    'Right': "Right",
+    'Up': "Up",
+    'Down': "Down",
+    'A': "Left Click",
+    'B': "Right Click",
+    'Y': "Middle Click",
+    'X': "Play/Pause"
 }
 
 DEFAULT_STICK_DICT = {
-    'Left Stick': 'Move',
-    'Right Stick': 'Scroll'
+    'Left Stick': "Move",
+    'Right Stick': "Scroll"
 }
 
 try:
-    with open('settings.pkl', 'rb') as stdin:
-        CONTROLLER_ID = pickle.load(stdin)
-
-        LEFT_SPEED = pickle.load(stdin)
-        RIGHT_SPEED = pickle.load(stdin)
-
-        VIBRATE_TIME = pickle.load(stdin)
-
-        MOVE_SPEED = pickle.load(stdin)
-        SCROLL_SPEED = pickle.load(stdin)
-
-        BUTTON_DICT = pickle.load(stdin)
-        STICK_DICT = pickle.load(stdin)
+    CONTROLLER_ID, LEFT_SPEED, RIGHT_SPEED, VIBRATE_BUTTON_TIME, VIBRATE_TRIGGER_TIME, MOVE_SPEED, SCROLL_SPEED, BUTTON_DICT, STICK_DICT = load_settings()
 except FileNotFoundError:
-    CONTROLLER_ID = 0
-
-    LEFT_SPEED = 0.8
-    RIGHT_SPEED = 0.3
-
-    VIBRATE_TIME = 0.2
-
-    MOVE_SPEED = 10.0
-    SCROLL_SPEED = 0.5
-
-    BUTTON_DICT = DEFAULT_BUTTON_DICT.copy()
-    STICK_DICT = DEFAULT_STICK_DICT.copy()
-
-    with open('settings.pkl', 'wb') as stdout:
-        pickle.dump(CONTROLLER_ID, stdout, pickle.HIGHEST_PROTOCOL)
-
-        pickle.dump(LEFT_SPEED, stdout, pickle.HIGHEST_PROTOCOL)
-        pickle.dump(RIGHT_SPEED, stdout, pickle.HIGHEST_PROTOCOL)
-
-        pickle.dump(VIBRATE_TIME, stdout, pickle.HIGHEST_PROTOCOL)
-
-        pickle.dump(MOVE_SPEED, stdout, pickle.HIGHEST_PROTOCOL)
-        pickle.dump(SCROLL_SPEED, stdout, pickle.HIGHEST_PROTOCOL)
-
-        pickle.dump(BUTTON_DICT, stdout, pickle.HIGHEST_PROTOCOL)
-        pickle.dump(STICK_DICT, stdout, pickle.HIGHEST_PROTOCOL)
+    save_settings(DEFAULT_CONTROLLER_ID, DEFAULT_LEFT_SPEED, DEFAULT_RIGHT_SPEED, DEFAULT_VIBRATE_BUTTON_TIME,
+                  DEFAULT_VIBRATE_TRIGGER_TIME, DEFAULT_MOVE_SPEED, DEFAULT_SCROLL_SPEED, DEFAULT_BUTTON_DICT, DEFAULT_STICK_DICT)
+    CONTROLLER_ID, LEFT_SPEED, RIGHT_SPEED, VIBRATE_BUTTON_TIME, VIBRATE_TRIGGER_TIME, MOVE_SPEED, SCROLL_SPEED, BUTTON_DICT, STICK_DICT = load_settings()
 
 mouse = Mouse()
 keyboard = Keyboard()
@@ -140,29 +116,6 @@ MOVEMENT_DICT = {
     'Move': [mouse.move, -1, MOVE_SPEED],
     'Scroll': [mouse.scroll, 1, SCROLL_SPEED],
     'Unmapped': None
-}
-
-BUTTON_DICT = {
-    'L1': 'Control',
-    'L2': 'Volume Up',
-    'L3': 'Backspace',
-    'R1': 'Shift',
-    'R2': 'Volume Down',
-    'R3': 'Enter',
-    'Menu': 'Start',
-    'Left': 'Left',
-    'Right': 'Right',
-    'Up': 'Up',
-    'Down': 'Down',
-    'A': 'Left Click',
-    'B': 'Right Click',
-    'Y': 'Middle Click',
-    'X': 'Play/Pause'
-}
-
-STICK_DICT = {
-    'Left Stick': 'Move',
-    'Right Stick': 'Scroll'
 }
 
 if __name__ == "__main__":
