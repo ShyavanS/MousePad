@@ -1,3 +1,9 @@
+<MyOption@SpinnerOption>:
+    min_state_time : 0.0001
+    background_color: 0.761, 0.761, 0.761, 1
+    on_press: self.background_color = 0.365, 0.761, 0.118, 1
+    on_release: self.background_color = 0.761, 0.761, 0.761, 1
+
 <MyLayout>
     #Variables
     left_text:left_vib
@@ -24,6 +30,7 @@
                 Spinner:
                     id: left_stick
                     text: "Shortcut:"
+                    option_cls: "MyOption"
                     bold: True
                     values: ["a","b","c","d"]
                     on_text: root.left_joystick(left_stick.text)
@@ -35,6 +42,7 @@
                 Spinner:
                     id: up_button
                     text: "Shortcut:"
+                    option_cls: "MyOption"
                     bold: True
                     values: ["a","b","c","d"]
                     on_text: root.press_up(up_button.text)
@@ -46,6 +54,7 @@
                 Spinner:
                     id: left_button
                     text: "Shortcut:"
+                    option_cls: "MyOption"
                     bold: True
                     values: ["a","b","c","d"]
                     on_text: root.press_left(left_button.text)
@@ -57,6 +66,7 @@
                 Spinner:
                     id: right_button
                     text: "Shortcut:"
+                    option_cls: "MyOption"
                     bold: True
                     values: ["a","b","c","d"]
                     on_text: root.press_right(right_button.text)
@@ -68,6 +78,7 @@
                 Spinner:
                     id: down_button
                     text: "Shortcut:"
+                    option_cls: "MyOption"
                     bold: True
                     values: ["a","b","c","d"]
                     on_text: root.press_down(down_button.text)
@@ -79,6 +90,7 @@
                 Spinner:
                     id: l1_button
                     text: "Shortcut:"
+                    option_cls: "MyOption"
                     values: ["a","b","c","d"]
                     on_text: root.press_l1(l1_button.text)
                     background_color: 0.761, 0.761, 0.761, 1
@@ -89,6 +101,7 @@
                 Spinner:
                     id: l2_button
                     text: "Shortcut:"
+                    option_cls: "MyOption"
                     bold: True
                     values: ["a","b","c","d"]
                     on_text: root.press_l2(l2_button.text)
@@ -119,6 +132,7 @@
                 Spinner:
                     id: y_button
                     text: "Shortcut:"
+                    option_cls: "MyOption"
                     bold: True
                     values: ["a","b","c","d"]
                     on_text: root.press_y(y_button.text)
@@ -130,6 +144,7 @@
                 Spinner:
                     id: x_button
                     text: "Shortcut:"
+                    option_cls: "MyOption"
                     bold: True
                     values: ["a","b","c","d"]
                     on_text: root.press_x(x_button.text)
@@ -141,6 +156,7 @@
                 Spinner:
                     id: b_button
                     text: "Shortcut:"
+                    option_cls: "MyOption"
                     bold: True
                     values: ["a","b","c","d"]
                     on_text: root.press_b(b_button.text)
@@ -152,6 +168,7 @@
                 Spinner:
                     id: a_button
                     text: "Shortcut:"
+                    option_cls: "MyOption"
                     bold: True
                     values: ["a","b","c","d"]
                     on_text: root.press_a(a_button.text)
@@ -163,6 +180,7 @@
                 Spinner:
                     id: right_stick
                     text: "Shortcut:"
+                    option_cls: "MyOption"
                     bold: True
                     values: ["a","b","c","d"]
                     on_text: root.right_joystick(left_stick.text)
@@ -174,6 +192,7 @@
                 Spinner:
                     id: r1_button
                     text: "Shortcut:"
+                    option_cls: "MyOption"
                     bold: True
                     values: ["a","b","c","d"]
                     on_text: root.press_r1(r1_button.text)
@@ -185,6 +204,7 @@
                 Spinner:
                     id: r2_button
                     text: "Shortcut:"
+                    option_cls: "MyOption"
                     bold: True
                     values: ["a","b","c","d"]
                     on_text: root.press_r2(r2_button.text)
@@ -254,6 +274,8 @@
                     step: 1
                     orientation: "vertical"
                     on_value: root.cursor_sen(*args)
+                    value_track: False
+                    value_track_color: 0.365, 0.761, 0.118, 1
             BoxLayout:
                 orientation: "vertical"
                 size: root.width, root.height
@@ -263,6 +285,7 @@
                     id: vibration_id
                     background_color: 0.761, 0.761, 0.761, 1
                     text: "Time"
+                    option_cls: "MyOption"
                     bold: True
                     color: 1, 1, 1, 1
                     bold: True
@@ -275,6 +298,7 @@
                 Spinner:
                     id: controller_id
                     text: "ID"
+                    option_cls: "MyOption"
                     bold: True
                     values: ["0","1","2","3"]
                     on_text: root.controller_num(controller_id.text)
