@@ -4,3 +4,6 @@ __pycache__/
 
 # Ignore GIMP Editable Icon File
 mouse_pad.xcf
+
+# Ignore .DS_Store File
+.DS_Store
