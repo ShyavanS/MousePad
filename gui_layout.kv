@@ -1,6 +1,7 @@
 <MyOption@SpinnerOption>:
-    min_state_time : 0.0001
+    min_state_time : 0.00000001
     background_color: 0.761, 0.761, 0.761, 1
+    background_down: 'dropdown.png'
     on_press: self.background_color = 0.365, 0.761, 0.118, 1
     on_release: self.background_color = 0.761, 0.761, 0.761, 1
 
@@ -16,15 +17,19 @@
 
     #Position of Tabs
     tab_pos: 'top_mid'
-
+    tab_width: self.size[0]/len(self.tab_list)
+    
     TabbedPanelItem:
         text: "Controller"
+        bold: True
+        background_down: 'tab.png'
         BoxLayout:
             orientation: "horizontal"
             size: root.width, root.height
             BoxLayout:
                 orientation: "vertical"
                 size: root.width, root.height
+                size_hint: .5, 1
                 Label:
                     text: "Left JoyStick"
                 Spinner:
@@ -34,6 +39,18 @@
                     bold: True
                     values: ["a","b","c","d"]
                     on_text: root.left_joystick(left_stick.text)
+                    background_color: 0.761, 0.761, 0.761, 1
+                    on_press: self.background_color = 0.365, 0.761, 0.118, 1
+                    on_release: self.background_color = 0.761, 0.761, 0.761, 1
+                Label:
+                    text: "L3 Trigger"
+                Spinner:
+                    id: l3_button
+                    text: "Shortcut:"
+                    option_cls: "MyOption"
+                    bold: True
+                    values: ["a","b","c","d"]
+                    on_text: root.press_l3(l3_button.text)
                     background_color: 0.761, 0.761, 0.761, 1
                     on_press: self.background_color = 0.365, 0.761, 0.118, 1
                     on_release: self.background_color = 0.761, 0.761, 0.761, 1
@@ -86,6 +103,18 @@
                     on_press: self.background_color = 0.365, 0.761, 0.118, 1
                     on_release: self.background_color = 0.761, 0.761, 0.761, 1
                 Label:
+                    text: "View Button"
+                Spinner:
+                    id: view_button
+                    text: "Shortcut:"
+                    option_cls: "MyOption"
+                    bold: True
+                    values: ["a","b","c","d"]
+                    on_text: root.press_view(view_button.text)
+                    background_color: 0.761, 0.761, 0.761, 1
+                    on_press: self.background_color = 0.365, 0.761, 0.118, 1
+                    on_release: self.background_color = 0.761, 0.761, 0.761, 1
+                Label:
                     text: "L1 Trigger"
                 Spinner:
                     id: l1_button
@@ -112,21 +141,29 @@
             BoxLayout:
                 orientation: "vertical"
                 size: root.width, root.height
+                Image: 
+                    source: "controller.png"
 
-                Image: 
-                    source: "front_view.png"
-                Image: 
-                    source: "top_view.png"
-                Button:
-                    text: "Save"
-                    bold: True
-                    background_color: 0.761, 0.761, 0.761, 1
-                    on_press: self.background_color = 0.365, 0.761, 0.118, 1
-                    on_release: self.background_color = 0.761, 0.761, 0.761, 1
+                BoxLayout:
+                    orientation: "horizontal"
+                    size: root.width, root.height
+                    size_hint: 1,.2
+                    Label:
+                        text: ""
+                    Button:
+                        text: "Save"
+                        bold: True
+                        background_color: 0.761, 0.761, 0.761, 1
+                        on_press: self.background_color = 0.365, 0.761, 0.118, 1
+                        on_release: self.background_color = 0.761, 0.761, 0.761, 1
+                    Label:
+                        text: ""
+
 
             BoxLayout:
                 orientation: "vertical"
                 size: root.width, root.height
+                size_hint: .5, 1
                 Label:
                     text: "Y Button"
                 Spinner:
@@ -183,7 +220,31 @@
                     option_cls: "MyOption"
                     bold: True
                     values: ["a","b","c","d"]
-                    on_text: root.right_joystick(left_stick.text)
+                    on_text: root.right_joystick(right_stick.text)
+                    background_color: 0.761, 0.761, 0.761, 1
+                    on_press: self.background_color = 0.365, 0.761, 0.118, 1
+                    on_release: self.background_color = 0.761, 0.761, 0.761, 1
+                Label:
+                    text: "R3 Trigger"
+                Spinner:
+                    id: r3_button
+                    text: "Shortcut:"
+                    option_cls: "MyOption"
+                    bold: True
+                    values: ["a","b","c","d"]
+                    on_text: root.press_r3(r3_button.text)
+                    background_color: 0.761, 0.761, 0.761, 1
+                    on_press: self.background_color = 0.365, 0.761, 0.118, 1
+                    on_release: self.background_color = 0.761, 0.761, 0.761, 1
+                Label:
+                    text: "Menu Button"
+                Spinner:
+                    id: menu_button
+                    text: "Shortcut:"
+                    option_cls: "MyOption"
+                    bold: True
+                    values: ["a","b","c","d"]
+                    on_text: root.press_menu(menu_button.text)
                     background_color: 0.761, 0.761, 0.761, 1
                     on_press: self.background_color = 0.365, 0.761, 0.118, 1
                     on_release: self.background_color = 0.761, 0.761, 0.761, 1
@@ -215,6 +276,8 @@
     
     TabbedPanelItem:
         text: "Sliders"
+        bold: True
+        background_down: 'tab.png'
         BoxLayout:
             orientation: "horizontal"
             size: root.width, root.height
@@ -232,6 +295,8 @@
                     step: 1
                     orientation: "vertical"
                     on_value: root.left_vib(*args)
+                    background_vertical: "track.png"
+                    cursor_image: "thumb.png"
             BoxLayout:
                 orientation: "vertical"
                 size: root.width, root.height
@@ -246,6 +311,8 @@
                     step: 1
                     orientation: "vertical"
                     on_value: root.right_vib(*args)
+                    background_vertical: "track.png"
+                    cursor_image: "thumb.png"
             BoxLayout:
                 orientation: "vertical"
                 size: root.width, root.height
@@ -260,6 +327,8 @@
                     step: 1
                     orientation: "vertical"
                     on_value: root.scroll_sen(*args)
+                    background_vertical: "track.png"
+                    cursor_image: "thumb.png"
             BoxLayout:
                 orientation: "vertical"
                 size: root.width, root.height
@@ -274,8 +343,8 @@
                     step: 1
                     orientation: "vertical"
                     on_value: root.cursor_sen(*args)
-                    value_track: False
-                    value_track_color: 0.365, 0.761, 0.118, 1
+                    background_vertical: "track.png"
+                    cursor_image: "thumb.png"
             BoxLayout:
                 orientation: "vertical"
                 size: root.width, root.height
@@ -316,6 +385,8 @@
 
     TabbedPanelItem:
         text: "Updates"
+        bold: True
+        background_down: 'tab.png'
         BoxLayout:
             orientation: "vertical"
             size: root.width, root.height
@@ -336,6 +407,8 @@
 
     TabbedPanelItem:
         text: "Reset"
+        bold: True
+        background_down: 'tab.png'
         BoxLayout:
             orientation: "vertical"
             size: root.width, root.height
@@ -351,6 +424,8 @@
 
     TabbedPanelItem:
         text: "Manual"
+        bold: True
+        background_down: 'tab.png'
         Label:
             bold: True
             text: "Instructions:\n\nNormal  things that seem like bugs:\n\nMeant as a supplement, in some instances you will still need your keyboard like task manager\n\nMade by:\nFrank\nIbrahim\nShyavan\nSoham\n\nCopywright and/or readme info and version no."

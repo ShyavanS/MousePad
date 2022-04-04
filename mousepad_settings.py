@@ -1,14 +1,17 @@
-from kivy.app import App
-from kivy.lang import Builder
-from kivy.uix.tabbedpanel import TabbedPanel
-from os import environ
 from tendo import singleton
+from os import environ
+from kivy.uix.tabbedpanel import TabbedPanel
+from kivy.lang import Builder
+from kivy.app import App
+from kivy.config import Config
+Config.set('graphics', 'resizable', '0')
 
 environ["PBR_VERSION"] = "4.0.2"
 
 mousepad = singleton.SingleInstance()
 
 Builder.load_file('gui_layout.kv')
+
 
 class MyLayout(TabbedPanel):
     def left_vib(self, *args):
@@ -70,12 +73,25 @@ class MyLayout(TabbedPanel):
 
     def press_r2(self, value):
         self.ids.r2_button.text = value
-        
+
+    def press_r3(self, value):
+        self.ids.r3_button.text = value
+
+    def press_l3(self, value):
+        self.ids.l3_button.text = value
+
+    def press_view(self, value):
+        self.ids.view_button.text = value
+
+    def press_menu(self, value):
+        self.ids.menu_button.text = value
+
     pass
 
 
 class MousePad(App):
     def build(self):
+        self.icon = 'mouse_pad.ico'
         return MyLayout()
 
 
