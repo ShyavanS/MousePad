@@ -1,11 +1,3 @@
-# TODO: Comment all code
-# TODO: Work on GUI
-# TODO: Add end-user button remapping support in GUI
-# TODO: Add end-user speed multiplier modification support in GUI
-# TODO: Create readme
-# TODO: Add autoupdater
-# TODO: Bug testing
-
 from os import environ
 from tendo import singleton
 from win10toast_click import ToastNotifier

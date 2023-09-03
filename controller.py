@@ -3,9 +3,12 @@ from threading import Thread
 from XInput import *
 from constants import *
 
+
 def retrieve_controllers():
     controllers = get_connected()
     controller_ids = [controllers.index(i) for i in controllers if i]
+    if not controller_ids:
+        controller_ids = [0]
 
     return controller_ids
 
