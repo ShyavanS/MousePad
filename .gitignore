@@ -5,5 +5,12 @@ __pycache__/
 # Ignore GIMP Editable Icon File
 mouse_pad.xcf
 
+# Ignore Distribution Related Files
+dist/
+*.spec
+*.iss
+*.exe
+*.txt
+
 # Ignore .DS_Store File
 .DS_Store
